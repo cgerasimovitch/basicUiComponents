@@ -8,14 +8,14 @@
 
 import UIKit
 class ProfileHeaderView: UIView {
-    
+    let statusUILabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
         //Add UIImageView
         let imageName = "cat.png"
         let image = UIImage(named: imageName)
         let resultedImageView = UIImageView(image: image)
-        resultedImageView.frame = CGRect(x: 16, y: superview?.frame.minY ?? 0 + 16, width: 100, height: 100)
+        resultedImageView.frame = CGRect(x: 16, y: superview?.frame.origin.y ?? 0 + 16, width: 100, height: 100)
         resultedImageView.layer.borderColor = UIColor.white.cgColor
         resultedImageView.layer.borderWidth = 3
         resultedImageView.layer.cornerRadius = 50
@@ -26,15 +26,14 @@ class ProfileHeaderView: UIView {
         headerUILabel.frame = CGRect(x: resultedImageView.frame.maxX + 20, y: superview?.frame.minY ?? 0 + 16, width: 400, height: 30)
         headerUILabel.font = .systemFont(ofSize: 18, weight: .bold)
         headerUILabel.textColor = .black
-        headerUILabel.text = "Hipster Cat"
+        headerUILabel.text = "Hipster Megacat"
         addSubview(headerUILabel)
         
         //Add statusUILabel
-        let statusUILabel = UILabel()
         statusUILabel.frame = CGRect(x: headerUILabel.frame.origin.x, y: headerUILabel.frame.origin.y + 34, width: headerUILabel.frame.width, height: headerUILabel.frame.height - 2)
         statusUILabel.font = .systemFont(ofSize: 14, weight: .regular)
         statusUILabel.textColor = .gray
-        statusUILabel.text = "Waiting for something"
+        statusUILabel.text = "Waiting for waiting"
         addSubview(statusUILabel)
         
         //Add showStatusButton
@@ -51,11 +50,15 @@ class ProfileHeaderView: UIView {
         showStatusButton.layer.shadowRadius = 4
         showStatusButton.layer.shadowColor = UIColor.black.cgColor
         showStatusButton.layer.shadowOpacity = 0.7
+        showStatusButton.addTarget(self, action: #selector(buttonPressed), for: UIControl.Event.touchUpInside)
         addSubview(showStatusButton)
         
-       
     }
-
+    
+    @objc func buttonPressed(sender: UIButton!) {
+        print("Status is: \(statusUILabel.text)")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
