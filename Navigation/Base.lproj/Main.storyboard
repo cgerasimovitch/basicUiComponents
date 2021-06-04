@@ -16,8 +16,21 @@
                     <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89H-FI-gTJ" customClass="ProfileHeaderView" customModule="Navigation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="snG-bH-Ttn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="89H-FI-gTJ" firstAttribute="leading" secondItem="FCL-IZ-fe8" secondAttribute="leading" id="fr7-gd-pW9"/>
+                            <constraint firstItem="FCL-IZ-fe8" firstAttribute="trailing" secondItem="89H-FI-gTJ" secondAttribute="trailing" id="hb0-ih-Uum"/>
+                            <constraint firstItem="89H-FI-gTJ" firstAttribute="top" secondItem="FCL-IZ-fe8" secondAttribute="top" id="zYb-Ct-KI0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="TPi-FS-zh0"/>
                 </viewController>

@@ -11,6 +11,20 @@ class ProfileHeaderView: UIView {
     let statusUILabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    
+    
+    @objc func buttonPressed(sender: UIButton!) {
+        print("Status is: \(statusUILabel.text)")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup(){
         //Add UIImageView
         let imageName = "cat.png"
         let image = UIImage(named: imageName)
@@ -52,15 +66,6 @@ class ProfileHeaderView: UIView {
         showStatusButton.layer.shadowOpacity = 0.7
         showStatusButton.addTarget(self, action: #selector(buttonPressed), for: UIControl.Event.touchUpInside)
         addSubview(showStatusButton)
-        
-    }
-    
-    @objc func buttonPressed(sender: UIButton!) {
-        print("Status is: \(statusUILabel.text)")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
